@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(car);
         }
 
         public Car Get(int id)
