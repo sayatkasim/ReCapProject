@@ -46,7 +46,7 @@
 
 
         </Style>
-        
+
         <!-- App close Style -->
         <ImageBrush x:Key="closeBtn_MouseOver" ImageSource="Assets/closeBtn_MouseOver.png"/>
         <Style x:Key="Close_btn" TargetType="{x:Type Button}">
@@ -57,7 +57,7 @@
                                 BorderThickness="0"
                                 Background="{TemplateBinding Background}"
                                 SnapsToDevicePixels="True">
-                            
+
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver"
@@ -71,17 +71,21 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
 
         <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
+
             <Setter Property="Template">
+
                 <Setter.Value>
+
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
+
                         <Border x:Name="border"
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
                                 SnapsToDevicePixels="True" >
-                            
+
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -92,7 +96,7 @@
                                         TargetName="border"
                                         Value="{StaticResource tb_mouse_over}"/>
                             </Trigger>
-                            
+
                             <Trigger Property="IsChecked" Value="True">
                                 <Setter Property="Background"
                                         TargetName="border"
@@ -106,13 +110,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
 
     </Window.Resources>
-    
+
     <Grid>
         <!-- Backgroun Color-->
         <Grid Background="#212121">
+
             <Grid Grid.Column="1"
               Grid.RowSpan="2"
               Margin="360,-365,-610,85"
@@ -168,6 +173,7 @@
                     </StackPanel>
                 </StackPanel>
 
+
             </Grid>
             <!--App Close-->
             <Grid>
@@ -190,7 +196,7 @@
                         Style="{StaticResource Close_btn}" Click="CloseBtn_Click">
                     <Button.Background>
                         <ImageBrush ImageSource="Assets/closeBtn_default.png"/>
-                        
+
                     </Button.Background>
                 </Button>
             </Grid>
@@ -219,9 +225,10 @@
                                                   Color="White"/>
 
                             </TextBlock.Effect>
-                            
+
                         </TextBlock>
                         <!--Toggel Button-->
+
                         <ToggleButton x:Name="Tg_Btn"
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
@@ -230,42 +237,70 @@
                                       Height="30"
                                       Width="30"
                                       BorderThickness="0"
-                                      Style="{StaticResource tb_style}" >
+                                      Style="{StaticResource tb_style}" Unchecked="Tg_Btn_Unchecked" Checked="Tg_Btn_Checked">
+
+                            <!--// Toggle button default background image //-->
+
                             <ToggleButton.Background>
+
                                 <ImageBrush ImageSource="Assets/menu.png"
                                             Stretch="None"/>
+
                             </ToggleButton.Background>
+
+                            <!--// Toggle Button - Checked, Unchecked events //-->
+
                             <ToggleButton.Triggers>
+
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+
                                     <BeginStoryboard>
+
                                         <Storyboard x:Name="HideStackPanel">
-                                            <DoubleAnimation
-                                                Storyboard.TargetName="nav_pn1"
+
+                                            <DoubleAnimation    
+                                                
+                                                Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="230" To="65"
                                                 Duration="0:0:0.2">
-                                                
+
                                             </DoubleAnimation>
+
                                         </Storyboard>
+
                                     </BeginStoryboard>
+
                                 </EventTrigger>
+
                                 <EventTrigger RoutedEvent="ToggleButton.Checked">
+
                                     <BeginStoryboard>
-                                        <Storyboard x:Name="ShowStackPanle">
+
+                                        <Storyboard x:Name="ShowStackPanel">
+
                                             <DoubleAnimation
+                                                
                                                 Storyboard.TargetName="nav_pnl"
                                                 Storyboard.TargetProperty="Width"
                                                 BeginTime="0:0:0"
                                                 From="65" To="230"
                                                 Duration="0:0:0.3">
-                                                
+
                                             </DoubleAnimation>
+
                                         </Storyboard>
+
                                     </BeginStoryboard>
+
                                 </EventTrigger>
+
                             </ToggleButton.Triggers>
+
+
                         </ToggleButton>
+
                     </Grid>
                     <ListView x:Name="LV"
                               Background="Transparent"
@@ -292,14 +327,14 @@
                         <!--Users -->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
-                            
+
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                
+
                                 <Image Source="Assets/user.png"
                                        Stretch="None"
                                        Margin="12,0,0,0"/>
-                                
+
                                 <TextBlock Text="Users"
                                            Margin="25,0,0,0"
                                            Style="{StaticResource font_style}"/>
@@ -310,7 +345,7 @@
                                          Style="{StaticResource tt_style}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
-                        
+
                         <!-- Added -->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0,0,0,15" MouseEnter="ListViewItem_MouseEnter">
@@ -410,7 +445,7 @@
                                 </Setter>
                             </Style>
                         </ListView.ItemContainerStyle>
-                        
+
                     </ListView>
                 </StackPanel>
             </Grid>

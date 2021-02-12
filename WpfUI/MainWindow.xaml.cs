@@ -28,23 +28,7 @@ namespace WpfUI
             InitializeComponent();
         }
 
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton== MouseButtonState.Pressed)
-            {
-                DragMove();
-            }
-        }
-
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void btnNewUser_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -65,11 +49,20 @@ namespace WpfUI
                 tt_user.Visibility = Visibility.Visible;
             }
         }
+        private void Tg_Btn_Unchecked(object sender, RoutedEventArgs e)
+        {
+            BG.Opacity = 1;
+        }
 
+        private void Tg_Btn_Checked(object sender, RoutedEventArgs e)
+        {
+            BG.Opacity = 0.3;
+        }
         private void BG_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Tg_Btn.IsChecked = false;
         }
+       
 
         private void CloseBtn_Click(object sender, RoutedEventArgs e)
         {
