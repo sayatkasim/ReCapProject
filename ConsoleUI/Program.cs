@@ -12,7 +12,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            Car car = new Car { CarId = 9, ModelYear = 2021, BrandId = 2, ColorId = 1, DailyPrice = 3500, Description = "E300 AMG" };
+            Car car = new Car { ModelYear = 2021, BrandId = 2, ColorId = 1, DailyPrice = 800, Description = "A180 AMG" };
             var result = carManager.Add(car);
             if (result.Success==true)
             {
@@ -29,11 +29,31 @@ namespace ConsoleUI
             {
                 Console.WriteLine(carDetail.BrandName + " " + carDetail.Description + " " + carDetail.ColorName);
             }
+            Console.WriteLine("Araç kiralama test");
+
+            //RentalManagerTest();
             //GetAllTest(carManager);
             //UserAdded();
 
         }
+        private static void RentalManagerTest()
+        {
+            IRentalService _rentalManager = new RentalManager(new EfRentalDal());
 
+            var result = _rentalManager.GetAll();
+
+            if (result.Success == true)
+            {
+                foreach (var rental in _rentalManager.GetAll().Data)
+                {
+                    Console.WriteLine(rental.ReturnDate);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+        }
         private static void UserAdded()
         {
             UserManager userManager = new UserManager(new EfUserDal());
