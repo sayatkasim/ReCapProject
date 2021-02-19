@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Configuration;
+using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
+using Microsoft.IdentityModel.Protocols;
 
 namespace WpfUI
 {
@@ -20,9 +25,28 @@ namespace WpfUI
     /// </summary>
     public partial class MainWindow : Window
     {
+     
         public MainWindow()
         {
             InitializeComponent();
+            
+        }
+
+        private void btnLogin_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+        
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        { 
+            Application.Current.Shutdown();
         }
     }
 }
