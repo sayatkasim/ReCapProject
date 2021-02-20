@@ -23,7 +23,7 @@
                 Background="#FF1C2A39" MouseDown="Border_MouseDown">
                 <TabControl HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="730">
                     <TabItem Header="Araçlar">
-                        <Grid Background="darkgr"/>
+                        <Grid Background="DarkGray"/>
                     </TabItem>
                     <TabItem Header="TabItem">
                         <Grid Background="#FFE5E5E5"/>

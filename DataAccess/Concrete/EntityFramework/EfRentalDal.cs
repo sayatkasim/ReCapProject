@@ -32,7 +32,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  RentalId=r.RentalId,
                                  RentDate= r.RentDate,
                                  ReturnDate= r.ReturnDate,
-                                 UserName= u.FirstName + " "+ u.LastName
+                                 UserName= u.Username
                              };
 
                 return result.ToList();
